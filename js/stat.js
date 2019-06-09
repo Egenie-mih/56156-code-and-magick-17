@@ -15,7 +15,7 @@ var COLUMN_GAP = 50;
 var CLOUD_COLOR = '#ffffff';
 var SHADOW_COLOR = 'rgba(0, 0, 0, 0.7)';
 
-var getMaxElement = function(arr) {
+var getMaxElement = function (arr) {
   var maxElement = arr[0];
 
   for (var i = 0; i < arr.length; i++) {
