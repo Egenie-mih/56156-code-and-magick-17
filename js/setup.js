@@ -30,7 +30,7 @@ function getRandomElement(array) {
   return array[index];
 }
 
-var onPopupEscPress = function(evt) {
+var onPopupEscPress = function (evt) {
   if (evt.keyCode === ESC_KEYCODE) {
     closePopup();
   }
