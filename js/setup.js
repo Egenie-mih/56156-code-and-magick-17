@@ -1,7 +1,5 @@
 'use strict';
 
-var ESC_KEYCODE = 27;
-var ENTER_KEYCODE = 13;
 var WIZARDS_NUMBER = 4;
 var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var WIZARD_SECOND_NAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
@@ -12,12 +10,8 @@ var userDialog = document.querySelector('.setup');
 var similarWizard = userDialog.querySelector('.setup-similar');
 var similarWizardList = userDialog.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
-
-var setup = document.querySelector('.setup');
 var setupWizard = document.querySelector('.setup-wizard');
 var setupForm = document.querySelector('.setup-wizard-form');
-var setupOpen = document.querySelector('.setup-open');
-var setupClose = setup.querySelector('.setup-close');
 var inputCoatColor = setupForm.querySelector('input[name="coat-color"]');
 var inputEyesColor = setupForm.querySelector('input[name="eyes-color"]');
 var inputFireballColor = setupForm.querySelector('input[name="fireball-color"]');
@@ -29,42 +23,6 @@ function getRandomElement(array) {
   var index = Math.floor(Math.random() * (array.length - 1));
   return array[index];
 }
-
-var onPopupEscPress = function (evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
-    closePopup();
-  }
-};
-
-var openPopup = function () {
-  setup.classList.remove('hidden');
-  document.addEventListener('keydown', onPopupEscPress);
-};
-
-var closePopup = function () {
-  setup.classList.add('hidden');
-  document.removeEventListener('keydown', onPopupEscPress);
-};
-
-setupOpen.addEventListener('click', function () {
-  openPopup();
-});
-
-setupOpen.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
-    openPopup();
-  }
-});
-
-setupClose.addEventListener('click', function () {
-  closePopup();
-});
-
-setupClose.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
-    closePopup();
-  }
-});
 
 var createWizardList = function () {
   var allWizards = [];
