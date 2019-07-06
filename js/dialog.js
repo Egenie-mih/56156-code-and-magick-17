@@ -1,8 +1,7 @@
 'use strict';
+
 (function () {
 
-  var ESC_KEYCODE = 27;
-  var ENTER_KEYCODE = 13;
   var DIALOG_DEFAULT_POSITION = {
     top: '80px',
     left: '50%'
@@ -18,9 +17,7 @@
   };
 
   var onPopupEscPress = function (evt) {
-    if (evt.keyCode === ESC_KEYCODE) {
-      closePopup();
-    }
+    window.util.isEscEvent(evt, closePopup);
   };
 
   var openPopup = function () {
@@ -39,9 +36,7 @@
   });
 
   setupOpen.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEYCODE) {
-      openPopup();
-    }
+    window.util.isEnterEvent(evt, openPopup);
   });
 
   setupClose.addEventListener('click', function () {
@@ -49,9 +44,7 @@
   });
 
   setupClose.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEYCODE) {
-      closePopup();
-    }
+    window.util.isEscEvent(evt, closePopup);
   });
 
   dialogHandler.addEventListener('mousedown', function (evt) {
